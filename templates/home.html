@@ -1,0 +1,52 @@
+
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="../static/iconmonstr-newspaper-3.svg">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>News Website</title>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo"><h2>World press</h2></a>
+        <ul class= "menu">
+            <li class="nav-items"><a href='/'>Home</a></li>
+            <li class="nav-items"><a href='/'>News</a></li>
+            <li class="nav-items"><a href='/'>Blogs</a></li>
+            <li class="nav-items"><a href='/'>Contact</a></li>
+        </ul>
+    </nav>
+<section id="main">
+    <div class="banner"><img src="../static/undraw_happy_news_re_tsbd.svg">
+    </div>
+    <div class = "head">TODAY'S TOP HEADLINES</div>
+    <div class="wrapper">
+        <div class="item"><a href="{{url}}"><img src="{{img}}"></a></div>
+        <div class = "c-box">
+        <div class="content"><a href="{{url}}"><h2>{{title}}</h2></a></div>
+        <div class="content"><a href="{{url}}"><p>{{desc}}</p></a></div>
+        <div class="content"><p style="color:rgb(77, 255, 0);">Publish Date:- </p><p>{{p_date}}</p></div>
+        </div>
+        </div> 
+    
+    <div class = "head">TODAY'S NEWS</div>
+    <div class="wrapper">
+        <div class="item"><a href="{{url}}"><img src="{{img}}"></a></div>
+        <div class = "c-box">
+        <div class="content"><a href="{{url}}"><h2>{{title}}</h2></a></div>
+        <div class="content"><p>{{desc}}</p></div>
+        <div class="content"><p style="color:rgb(77, 255, 0);">Publish Date:- </p><p> {{p_date}} </p></div>
+        </div>
+        </div> 
+</section>
+<footer>
+<div class="head-f"><h2> Copyright &copy; World Press 2022</h2></div>
+</footer>
+</body>
+</html>
