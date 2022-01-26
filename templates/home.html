@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav>
-        <a href="/" class="logo"><h2>World press</h2></a>
+        <a href="/" class="logo"><h2>WorldPress</h2></a>
         <ul class= "menu">
             <li class="nav-items"><a href='/'>Home</a></li>
             <li class="nav-items"><a href='/'>News</a></li>
@@ -23,9 +23,11 @@
         </ul>
     </nav>
 <section id="main">
-    <div class="banner"><img src="../static/undraw_happy_news_re_tsbd.svg">
+    <h2>Welcome to the WorldPress 🌎 </h2>
+    <div class="banner"><video src="../static/reporter.mp4" muted loop autoplay></video>
     </div>
     <div class = "head">TODAY'S TOP HEADLINES</div>
+    {% for title,desc,img,p_date,url in contents %}
     <div class="wrapper">
         <div class="item"><a href="{{url}}"><img src="{{img}}"></a></div>
         <div class = "c-box">
@@ -34,8 +36,10 @@
         <div class="content"><p style="color:rgb(77, 255, 0);">Publish Date:- </p><p>{{p_date}}</p></div>
         </div>
         </div> 
+    {% endfor %}  
     
     <div class = "head">TODAY'S NEWS</div>
+    {% for title,desc,img,p_date,url in all %}
     <div class="wrapper">
         <div class="item"><a href="{{url}}"><img src="{{img}}"></a></div>
         <div class = "c-box">
@@ -44,7 +48,7 @@
         <div class="content"><p style="color:rgb(77, 255, 0);">Publish Date:- </p><p> {{p_date}} </p></div>
         </div>
         </div> 
-</section>
+    {% endfor %}
 <footer>
 <div class="head-f"><h2> Copyright &copy; World Press 2022</h2></div>
 </footer>

@@ -3,34 +3,54 @@ from newsapi import NewsApiClient
 
 app = Flask(__name__)
 
-# creating the route function and render html  files that
-@app.route('/')
+@app.route("/")
 def home():
-      # creating the client id and api_key for authorization
-      newsapi = NewsApiClient(api_key="1a7abb11a1f1404491e762c18fd25f3e")
+    api_key = '1a7abb11a1f1404491e762c18fd25f3e'
+    
+    newsapi = NewsApiClient(api_key=api_key)
 
-      return render_template('home.html')
+    top_headlines = newsapi.get_top_headlines(sources = "bbc-news")
+    all_articles = newsapi.get_everything(sources = "bbc-news")
 
-      top_headlines = newsapi.get_top_headlines(sources = 'bbc-news')
-      
-      t_articles = top_headlines['articles']
-      # making a list of contents to store the values on the list
-      news = []
-      desc = []
-      p_date = []
-      url = []
+    t_articles = top_headlines['articles']
+    a_articles = all_articles['articles']
 
-     # fetching all the contents of the articles using loop
-      for i in range(len(t_article)):
-            main_article = t_articles[i]
+    news = []
+    desc = []
+    img = []
+    p_date = []
+    url = []
 
-            news.append(main_article['title'])
-            desc.append(main_article['description'])
-            img.append(main_article['urlToImage'])
-            p_date.append(main_article['publishedAt'])
-            url.append(main_article['url'])
+    for i in range (len(t_articles)):
+        main_article = t_articles[i]
+
+        news.append(main_article['title'])
+        desc.append(main_article['description'])
+        img.append(main_article['urlToImage'])
+        p_date.append(main_article['publishedAt'])
+        url.append(main_article['url'])
+
+        contents = zip( news,desc,img,p_date,url)
+
+    news_all = []
+    desc_all = []
+    img_all = []
+    p_date_all = []   
+    url_all = []
+
+    for j in range(len(a_articles)): 
+        main_all_articles = a_articles[j]   
+
+        news_all.append(main_all_articles['title'])
+        desc_all.append(main_all_articles['description'])
+        img_all.append(main_all_articles['urlToImage'])
+        p_date_all.append(main_all_articles['publishedAt'])
+        url_all.append(main_article['url'])
+        
+        all = zip( news_all,desc_all,img_all,p_date_all,url_all)
+
+    return render_template('home.html',contents=contents,all = all)
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
